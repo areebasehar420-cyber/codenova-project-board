@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project Board</title>
+<style>
+:root{box-sizing:border-box;--bg:#f6f4ef;--card:#fff;--ink:#1f2a24;--mute:#5d6860;--line:#dcd8cc;--accent:#0f6b4f;--chip:#e7efe9;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a16;--card:#1a2420;--ink:#e9efe9;--mute:#9db0a5;--line:#2b3a33;--accent:#5fd3a2;--chip:#23332b}}
+:root[data-theme="dark"]{--bg:#121a16;--card:#1a2420;--ink:#e9efe9;--mute:#9db0a5;--line:#2b3a33;--accent:#5fd3a2;--chip:#23332b}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+h1{margin:0 0 4px;font-size:1.7rem}
+.sub{color:var(--mute);margin:0 0 18px}
+.bar{display:grid;gap:10px;grid-template-columns:1fr;margin-bottom:12px}
+@media(min-width:720px){.bar{grid-template-columns:2fr 1fr 1fr 1fr}}
+input,select{width:100%;padding:11px 12px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:8px 0 14px;color:var(--mute);font-size:.92rem}
+.chk{display:flex;align-items:center;gap:8px;color:var(--ink)}
+.chk input{width:20px;height:20px;min-height:0}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:1.05rem}
+.meta{color:var(--mute);font-size:.88rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tags span{background:var(--chip);border-radius:6px;padding:2px 8px;font-size:.8rem}
+.state{text-align:center;padding:48px 16px;border:1px dashed var(--line);border-radius:10px;color:var(--mute)}
+.state h2{color:var(--ink);margin:0 0 6px;font-size:1.2rem}
+button{font:inherit;cursor:pointer;min-height:44px;padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+button.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] button.pri{color:#0b140f}
+.pager{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:20px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <h1>Project board</h1>
+ <p class="sub">Find open student projects by skill, domain, level or work mode.</p>
+ <div class="bar">
+  <input id="q" type="search" placeholder="Search title, skill or keyword" aria-label="Search listings">
+  <select id="dom" aria-label="Domain"><option value="">All domains</option></select>
+  <select id="lvl" aria-label="Experience level"><option value="">All levels</option></select>
+  <select id="sort" aria-label="Sort"><option value="new">Newest first</option><option value="az">Title A to Z</option></select>
+ </div>
+ <div class="row">
+  <label class="chk"><input type="checkbox" id="rem"> Remote only</label>
+  <span id="count" aria-live="polite"></span>
+ </div>
+ <div id="out"></div>
+ <div class="pager hidden" id="pager">
+  <button id="prev">Previous</button><span id="pg"></span><button id="nxt">Next</button>
+ </div>
+</div>
+<script type="application/json" id="data">
+[
+{"id":1,"title":"Portfolio Site Revamp","domain":"Frontend","level":"Beginner","remote":true,"date":"2026-10-20","skills":["HTML","CSS","Flexbox"],"desc":"Redesign a personal portfolio with a responsive layout."},
+{"id":2,"title":"Weather App","domain":"Frontend","level":"Beginner","remote":true,"date":"2026-10-18","skills":["JavaScript","Fetch API","CSS"],"desc":"Show forecasts from a free public weather API."},
+{"id":3,"title":"Expense Tracker API","domain":"Backend","level":"Intermediate","remote":true,"date":"2026-10-15","skills":["Node.js","Express","SQLite"],"desc":"Build REST endpoints to log and summarize expenses."},
+{"id":4,"title":"Campus Events Portal","domain":"Full Stack","level":"Intermediate","remote":false,"date":"2026-10-12","skills":["React","Node.js","MongoDB"],"desc":"A portal for posting and RSVPing to college events."},
+{"id":5,"title":"Sales Data Dashboard","domain":"Data","level":"Intermediate","remote":true,"date":"2026-10-10","skills":["Python","Pandas","Charts"],"desc":"Visualize monthly sales trends from a CSV file."},
+{"id":6,"title":"Habit Tracker PWA","domain":"Frontend","level":"Intermediate","remote":true,"date":"2026-10-08","skills":["JavaScript","PWA","LocalStorage"],"desc":"Offline-first habit tracking with streaks."},
+{"id":7,"title":"Chat Server","domain":"Backend","level":"Advanced","remote":true,"date":"2026-10-05","skills":["WebSockets","Node.js","Redis"],"desc":"Real-time chat rooms with message history."},
+{"id":8,"title":"Study Planner Mobile App","domain":"Mobile","level":"Beginner","remote":false,"date":"2026-10-03","skills":["Flutter","Dart","UI"],"desc":"Plan study sessions with reminders."},
+{"id":9,"title":"Resume Parser","domain":"Data","level":"Advanced","remote":true,"date":"2026-09-28","skills":["Python","NLP","Regex"],"desc":"Extract skills and education from resume files."},
+{"id":10,"title":"Recipe Finder","domain":"Full Stack","level":"Beginner","remote":true,"date":"2026-09-25","skills":["React","API","CSS"],"desc":"Search recipes by ingredient with saved favourites."},
+{"id":11,"title":"Component Library","domain":"Frontend","level":"Advanced","remote":false,"date":"2026-09-20","skills":["TypeScript","React","Accessibility"],"desc":"Build accessible, documented UI components."},
+{"id":12,"title":"Inventory Manager","domain":"Backend","level":"Beginner","remote":false,"date":"2026-09-15","skills":["Python","Flask","SQLite"],"desc":"CRUD app for tracking stock in a small shop."},
+{"id":13,"title":"Fitness Log App","domain":"Mobile","level":"Intermediate","remote":true,"date":"2026-09-10","skills":["React Native","JavaScript","Charts"],"desc":"Log workouts and chart weekly progress."}
+]
+</script>
+<script>
+const PER=6,$=id=>document.getElementById(id);
+let all=[],page=1,t;
+// Async load (simulates a mock API). Failures show an error state with retry.
+function load(){
+  $('out').innerHTML='<div class="state">Loading listings...</div>';
+  return fetch('listings.json').then(r=>{if(!r.ok)throw 0;return r.json()})
+   .catch(()=>JSON.parse($('data').textContent)) // embedded fallback for file://
+   .then(d=>{all=d;init();apply()})
+   .catch(()=>{$('out').innerHTML='<div class="state"><h2>Could not load listings</h2><p>Check your connection and try again.</p><button class="pri" id="retry">Retry</button></div>';$('retry').onclick=load});
+}
+function init(){
+  if($('dom').options.length>1)return;
+  [...new Set(all.map(x=>x.domain))].sort().forEach(v=>$('dom').add(new Option(v,v)));
+  [...new Set(all.map(x=>x.level))].forEach(v=>$('lvl').add(new Option(v,v)));
+}
+function apply(){
+  const q=$('q').value.trim().toLowerCase(),d=$('dom').value,l=$('lvl').value,r=$('rem').checked;
+  let list=all.filter(x=>
+    (!q||(x.title+' '+x.desc+' '+x.skills.join(' ')).toLowerCase().includes(q))&&
+    (!d||x.domain===d)&&(!l||x.level===l)&&(!r||x.remote));
+  list.sort($('sort').value==='az'?(a,b)=>a.title.localeCompare(b.title):(a,b)=>b.date.localeCompare(a.date));
+  const pages=Math.max(1,Math.ceil(list.length/PER));
+  if(page>pages)page=pages;
+  $('count').textContent=`${list.length} of ${all.length} listings`;
+  if(!list.length){
+    $('out').innerHTML='<div class="state"><h2>No listings match</h2><p>Try a different keyword or clear some filters.</p><button class="pri" id="clr">Clear filters</button></div>';
+    $('clr').onclick=()=>{$('q').value='';$('dom').value='';$('lvl').value='';$('rem').checked=false;page=1;apply()};
+    $('pager').classList.add('hidden');return;
+  }
+  const slice=list.slice((page-1)*PER,page*PER);
+  $('out').innerHTML='<div class="grid">'+slice.map(x=>`<article class="card"><h3>${x.title}</h3><div class="meta">${x.domain} &bull; ${x.level} &bull; ${x.remote?'Remote':'On-site'}</div><div>${x.desc}</div><div class="tags">${x.skills.map(s=>`<span>${s}</span>`).join('')}</div></article>`).join('')+'</div>';
+  $('pager').classList.toggle('hidden',pages<2);
+  $('pg').textContent=`Page ${page} of ${pages}`;
+  $('prev').disabled=page===1;$('nxt').disabled=page===pages;
+}
+// Debounced search (250ms); other filters reset to page 1 and apply instantly.
+$('q').oninput=()=>{clearTimeout(t);t=setTimeout(()=>{page=1;apply()},250)};
+['dom','lvl','sort','rem'].forEach(id=>$(id).onchange=()=>{page=1;apply()});
+$('prev').onclick=()=>{page--;apply();scrollTo(0,0)};
+$('nxt').onclick=()=>{page++;apply();scrollTo(0,0)};
+load();
+</script>
+</body>
+</html>

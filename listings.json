@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "title": "Portfolio Site Revamp",
+    "domain": "Frontend",
+    "level": "Beginner",
+    "remote": true,
+    "date": "2026-10-20",
+    "skills": [
+      "HTML",
+      "CSS",
+      "Flexbox"
+    ],
+    "desc": "Redesign a personal portfolio with a responsive layout."
+  },
+  {
+    "id": 2,
+    "title": "Weather App",
+    "domain": "Frontend",
+    "level": "Beginner",
+    "remote": true,
+    "date": "2026-10-18",
+    "skills": [
+      "JavaScript",
+      "Fetch API",
+      "CSS"
+    ],
+    "desc": "Show forecasts from a free public weather API."
+  },
+  {
+    "id": 3,
+    "title": "Expense Tracker API",
+    "domain": "Backend",
+    "level": "Intermediate",
+    "remote": true,
+    "date": "2026-10-15",
+    "skills": [
+      "Node.js",
+      "Express",
+      "SQLite"
+    ],
+    "desc": "Build REST endpoints to log and summarize expenses."
+  },
+  {
+    "id": 4,
+    "title": "Campus Events Portal",
+    "domain": "Full Stack",
+    "level": "Intermediate",
+    "remote": false,
+    "date": "2026-10-12",
+    "skills": [
+      "React",
+      "Node.js",
+      "MongoDB"
+    ],
+    "desc": "A portal for posting and RSVPing to college events."
+  },
+  {
+    "id": 5,
+    "title": "Sales Data Dashboard",
+    "domain": "Data",
+    "level": "Intermediate",
+    "remote": true,
+    "date": "2026-10-10",
+    "skills": [
+      "Python",
+      "Pandas",
+      "Charts"
+    ],
+    "desc": "Visualize monthly sales trends from a CSV file."
+  },
+  {
+    "id": 6,
+    "title": "Habit Tracker PWA",
+    "domain": "Frontend",
+    "level": "Intermediate",
+    "remote": true,
+    "date": "2026-10-08",
+    "skills": [
+      "JavaScript",
+      "PWA",
+      "LocalStorage"
+    ],
+    "desc": "Offline-first habit tracking with streaks."
+  },
+  {
+    "id": 7,
+    "title": "Chat Server",
+    "domain": "Backend",
+    "level": "Advanced",
+    "remote": true,
+    "date": "2026-10-05",
+    "skills": [
+      "WebSockets",
+      "Node.js",
+      "Redis"
+    ],
+    "desc": "Real-time chat rooms with message history."
+  },
+  {
+    "id": 8,
+    "title": "Study Planner Mobile App",
+    "domain": "Mobile",
+    "level": "Beginner",
+    "remote": false,
+    "date": "2026-10-03",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "UI"
+    ],
+    "desc": "Plan study sessions with reminders."
+  },
+  {
+    "id": 9,
+    "title": "Resume Parser",
+    "domain": "Data",
+    "level": "Advanced",
+    "remote": true,
+    "date": "2026-09-28",
+    "skills": [
+      "Python",
+      "NLP",
+      "Regex"
+    ],
+    "desc": "Extract skills and education from resume files."
+  },
+  {
+    "id": 10,
+    "title": "Recipe Finder",
+    "domain": "Full Stack",
+    "level": "Beginner",
+    "remote": true,
+    "date": "2026-09-25",
+    "skills": [
+      "React",
+      "API",
+      "CSS"
+    ],
+    "desc": "Search recipes by ingredient with saved favourites."
+  },
+  {
+    "id": 11,
+    "title": "Component Library",
+    "domain": "Frontend",
+    "level": "Advanced",
+    "remote": false,
+    "date": "2026-09-20",
+    "skills": [
+      "TypeScript",
+      "React",
+      "Accessibility"
+    ],
+    "desc": "Build accessible, documented UI components."
+  },
+  {
+    "id": 12,
+    "title": "Inventory Manager",
+    "domain": "Backend",
+    "level": "Beginner",
+    "remote": false,
+    "date": "2026-09-15",
+    "skills": [
+      "Python",
+      "Flask",
+      "SQLite"
+    ],
+    "desc": "CRUD app for tracking stock in a small shop."
+  },
+  {
+    "id": 13,
+    "title": "Fitness Log App",
+    "domain": "Mobile",
+    "level": "Intermediate",
+    "remote": true,
+    "date": "2026-09-10",
+    "skills": [
+      "React Native",
+      "JavaScript",
+      "Charts"
+    ],
+    "desc": "Log workouts and chart weekly progress."
+  }
+]
